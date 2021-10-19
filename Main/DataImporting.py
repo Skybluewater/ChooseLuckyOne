@@ -35,7 +35,7 @@ class Excel(FileHandling):
         self.dic = {}
         for file in self.files:
             if os.path.splitext(file)[-1] == ".xls" or os.path.splitext(file)[-1] == ".xlsx":
-                self.book = xlrd.open_workbook(file)
+                self.book = xlrd.open_workbook(self.file_folder + "/" + file)
                 self.sheet = self.book.sheet_by_index(0)
                 return
         raise ValueError("No Such Excel")
